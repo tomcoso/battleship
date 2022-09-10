@@ -110,3 +110,5 @@ dist
 .eslintignore
 
 .vscode/
+
+babel.config.js
