@@ -27,4 +27,4 @@ const Ship = function (length) {
 
   return { length, body, hit, isSunk }
 }
-export { Ship }
+export default Ship
