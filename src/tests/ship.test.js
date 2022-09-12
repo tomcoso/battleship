@@ -1,4 +1,4 @@
-import Ship from './ship.js'
+import Ship from '../modules/ship'
 
 test('ship has correct length', () => {
   const ship = Ship(4)

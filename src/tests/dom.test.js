@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
-import dom from './dom'
-import Gameboard from './gameboard'
-import Ship from './ship'
+import dom from '../modules/dom'
+import Gameboard from '../modules/gameboard'
+import Ship from '../modules/ship'
 
 describe('start dom', () => {
   const boardOne = document.createElement('div')

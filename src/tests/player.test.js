@@ -1,7 +1,7 @@
-import Player from './player'
-import obs from './observer'
+import Player from '../modules/player'
+import obs from '../modules/observer'
 
-jest.mock('./observer')
+jest.mock('../modules/observer')
 
 describe('constructor', () => {
   const playerOne = Player('user')

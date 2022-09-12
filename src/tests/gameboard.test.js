@@ -1,8 +1,8 @@
-import Gameboard from './gameboard'
-import obs from './observer'
+import Gameboard from '../modules/gameboard'
+import obs from '../modules/observer'
 // import Ship from './ship'
 
-jest.mock('./observer')
+jest.mock('../modules/observer')
 
 const mockShip = jest.fn((n) => {
   const body = []
