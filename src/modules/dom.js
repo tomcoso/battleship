@@ -28,10 +28,14 @@ const dom = (function () {
           domboard.children[y].children[x].classList.add(
             `ship${gameboard[y][x].ship.body.length}`
           )
+
           if (gameboard[y][x].section.status === 'hit') {
             domboard.children[y].children[x].classList.remove('ok')
             domboard.children[y].children[x].classList.add('hit')
           } else domboard.children[y].children[x].classList.add('ok')
+          if (gameboard[y][x].ship.isSunk() === true) {
+            domboard.children[y].children[x].classList.add('sunk')
+          }
         } else if (gameboard[y][x] === 0) {
           domboard.children[y].children[x].classList.add('miss')
         }
