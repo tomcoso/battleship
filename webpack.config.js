@@ -13,6 +13,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Battleship',
       template: './src/template.html',
+      favicon: './src/assets/favicon.png',
     }),
   ],
   module: {
