@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <link rel="icon" href="favicon.png"><script defer src="main.js"></script></head>
+  <body>
+    <header><h1>Battleship</h1></header>
+    <main>
+      <div id="player-one-wrap" class="turn">
+        <p>Our ships</p>
+        <div id="board-one"></div>
+      </div>
+
+      <div id="player-two-wrap">
+        <p>Enemy waters</p>
+        <div id="board-two"></div>
+      </div>
+
+      <div id="end-screen" class="hidden">
+        <div>
+          <p></p>
+          <button type="button">Play Again!</button>
+        </div>
+      </div>
+
+      <div id="new-screen" class="hidden">
+        <div>
+          <p>Place your ships, Commander.</p>
+          <div id="new-board"></div>
+          <div class="buttons">
+            <button id="axis-button" type="button">Axis: X</button>
+            <button id="start-button" type="button" disabled="true">
+              Start!
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <a href="https://github.com/tomcoso" target="_blank"
+        ><img src="" alt="github" id="gh-icon"
+      /></a>
+    </footer>
+  </body>
+</html>
