@@ -1,5 +1,5 @@
 # Battleship TDD Project
 
-This is a project from The Odin Project with the aim of getting introduced to unit testing and TDD
+Battleship game against a rudimentary AI (it may win) I built after some frustrations. Project was built with Test Driven Development using Jest and vanilla Js with Webpack
 
 ### [Live Demo](https://tomcoso.github.io/battleship/)
