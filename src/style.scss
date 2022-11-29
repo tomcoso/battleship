@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 $main-font: 'Saira Stencil One', cursive;
@@ -15,250 +15,296 @@ $light: #d6f3ba;
 $attack: #ce2415;
 
 @media (max-width: 900px) {
-    :root {
-        --main-dir: column;
-    }
+  :root {
+    --main-dir: column;
+  }
 }
 
 @media (min-width: 900px) {
-    :root {
-        --main-dir: row;
-    }
+  :root {
+    --main-dir: row;
+  }
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    background: $semi-dark;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  background: $semi-dark;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 header {
-    background-color: $semi-dark;
-    height: 13vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 2px 10px #000;
-    position: relative;
-    z-index: 1;
+  background-color: $semi-dark;
+  height: 13vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 10px #000;
+  position: relative;
+  z-index: 1;
 
-    h1 {
-        font-family: $main-font;
-        font-size: 4rem;
-        font-weight: normal;
-    }
+  h1 {
+    font-family: $main-font;
+    font-size: 4rem;
+    font-weight: normal;
+  }
 }
 
 footer {
-    background-color: $semi-dark;
-    height: 5vh;
-    width: 100%;
-    box-shadow: 0px -2px 10px #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    a {
-        transform: scale(.7);
-        img {
-            transform: rotate(180deg);
-            transition: transform 500ms;
-            &:hover {
-                transform: rotate(0deg);
-            }
-        }
+  background-color: $semi-dark;
+  height: 5vh;
+  width: 100%;
+  box-shadow: 0px -2px 10px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  a {
+    transform: scale(0.7);
+    img {
+      transform: rotate(180deg);
+      transition: transform 500ms;
+      &:hover {
+        transform: rotate(0deg);
+      }
     }
+  }
 }
 
 main {
-    position: relative;
-    flex-grow: 1;
-    width: 100%;
-    height: auto;
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: var(--main-dir);
+  justify-content: center;
+  align-items: center;
+  gap: min(150px, 10vh);
+  padding: {
+    top: 50px;
+    bottom: 50px;
+  }
+}
+
+#player-one-wrap,
+#player-two-wrap {
+  padding: min(60px, 5vw);
+  background-color: $main-green;
+  box-shadow: 0px 5px 10px -2px #000;
+  border-radius: 5px;
+
+  p {
+    font-family: $main-font;
+  }
+}
+#player-one-wrap.turn,
+#player-two-wrap.turn {
+  outline: none;
+}
+
+#player-one-wrap.turn #board-one,
+#player-two-wrap.turn #board-two {
+  border-bottom: 4px solid $main-green;
+}
+
+#board-one,
+#board-two {
+  border-bottom: 4px solid $attack;
+  width: min-content;
+  height: min-content;
+  background: $light;
+  box-shadow: inset 0px 0px 10px -2px #000;
+
+  div {
     display: flex;
-    flex-direction: var(--main-dir);
-    justify-content: center;
-    align-items: center;
-    gap: min(150px, 10vh);
-    padding: {
-        top: 50px;
-        bottom: 50px;
-    }
-}
-
-#player-one-wrap, #player-two-wrap {
-    padding: min(60px, 5vw);
-    background-color: $main-green;
-    box-shadow: 0px 5px 10px -2px #000;
-    border-radius: 5px;
-    
-    p {
-        font-family: $main-font;
-    }
-}
-#player-one-wrap.turn, #player-two-wrap.turn {
-    outline: none;
-    
-}
-
-#player-one-wrap.turn #board-one, #player-two-wrap.turn #board-two {
-    border-bottom: 4px solid $main-green;
-}
-
-#board-one, #board-two {
-    border-bottom: 4px solid $attack;
-    width: min-content;
-    height: min-content;
-    background: $light;
-    box-shadow: inset 0px 0px 10px -2px #000;
 
     div {
-        display: flex;
+      width: 30px;
+      height: 30px;
+      border: 1px solid $dark;
+      transition: background 500ms;
 
-        div {
-            width: 30px;
-            height: 30px;
-            border: 1px solid $dark;
-            transition: background 500ms;
-
-            &:hover {
-                border: 1px solid $attack;
-            }
-        }
+      &:hover {
+        border: 1px solid $attack;
+      }
     }
+  }
 }
 #board-two {
-    cursor: crosshair;
+  cursor: crosshair;
 }
 #board-one div div:hover {
-    border: 1px solid $dark;
+  border: 1px solid $dark;
 }
 
 .hit {
-    background-image: url(./assets/icons/hit.svg);
-    background-size:cover;
-    &:hover {
-        border: 1px solid $dark !important;
-    }
+  background-image: url(./assets/icons/hit.svg);
+  background-size: cover;
+  &:hover {
+    border: 1px solid $dark !important;
+  }
 }
-#board-one .ok, #board-one .hit {
-    background-color: $dark;
+#board-one .ok,
+#board-one .hit {
+  background-color: $dark;
 }
 .miss {
-    background-image: url(./assets/icons/miss.svg);
-    background-size:cover;
-    &:hover {
-        border: 1px solid $dark !important;
-    }
+  background-image: url(./assets/icons/miss.svg);
+  background-size: cover;
+  &:hover {
+    border: 1px solid $dark !important;
+  }
 }
 .sunk {
-    background-color: $attack;
+  background-color: $attack;
 }
 #board-one .sunk {
-    background-color: $attack !important;
+  background-color: $attack !important;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 #end-screen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(30, 53, 47, .9);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 53, 47, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    padding: 60px;
+    background-color: $main-green;
+    border-radius: 5px;
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: $main-font;
+    box-shadow: 0px 10px 10px #000;
     justify-content: center;
     align-items: center;
-    div {
-        padding: 60px;
-        background-color: $main-green;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        font-family: $main-font;
-        box-shadow: 0px 10px 10px #000;
-        justify-content: center;
-        align-items: center;
-    }
-    div > p {
-        font-size: 1.5rem;
-    }
-    div > button {
-        font-family: $main-font;
-        padding: 5px 10px;
-        font-size: 1.2rem;
-        border-radius: 5px;
-        background-color: $light;
-    }
+  }
+  div > p {
+    font-size: 1.5rem;
+  }
+  div > button {
+    font-family: $main-font;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: $light;
+  }
 }
 
 #new-screen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: $dark;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > div:not(#new-board) {
+    padding: 30px;
+    background-color: $main-green;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-family: $main-font;
+    box-shadow: 0px 10px 10px #000;
+    justify-content: center;
+    align-items: center;
+  }
+  > div > p {
+    font-size: 1.5rem;
+  }
+  .buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    > div:not(#new-board) {
-        padding: 30px;
-        background-color: $main-green;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        font-family: $main-font;
-        box-shadow: 0px 10px 10px #000;
-        justify-content: center;
-        align-items: center;
+    gap: 1rem;
+    button {
+      cursor: grab;
+      font-size: 1.3rem;
+      padding: 5px 10px;
+      background-color: $light;
+      font-family: $main-font;
+      border-radius: 5px;
     }
-    > div > p {
-        font-size: 1.5rem;
-    }
-    .buttons {
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        button {
-            cursor: grab;
-            font-size: 1.3rem;
-            padding: 5px 10px;
-            background-color: $light;
-            font-family: $main-font;
-            border-radius: 5px;
-        }
-    }
-     
+  }
 }
 #new-board {
-    background-color: $light;
+  background-color: $light;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid $semi-dark;
+  > div {
     display: flex;
-    flex-direction: column;
-    border: 1px solid $semi-dark;
+    flex-direction: row;
     > div {
-        display: flex;
-        flex-direction: row;
-        > div {
-        width: 30px;
-        height: 30px;
-        border: 1px solid $semi-dark;
-            &:hover {
-                background-color: $semi-dark;
-            }
-            &.ok {
-                background-color: $dark;
-            }
-        }
+      width: 30px;
+      height: 30px;
+      border: 1px solid $semi-dark;
+
+      &:hover::before {
+        position: absolute;
+        background-color: $semi-dark;
+        content: '';
+      }
+      &.ok {
+        background-color: $dark;
+      }
     }
-    
+  }
+  &.x.ship1 > div > div:hover::before {
+    height: 30px;
+    width: 30px;
+  }
+  &.x.ship2 > div > div:hover::before {
+    height: 30px;
+    width: 60px;
+  }
+  &.x.ship3 > div > div:hover::before {
+    height: 30px;
+    width: 90px;
+  }
+  &.x.ship4 > div > div:hover::before {
+    height: 30px;
+    width: 120px;
+  }
+  &.x.ship5 > div > div:hover::before {
+    height: 30px;
+    width: 150px;
+  }
+
+  &.y.ship1 > div > div:hover::before {
+    height: 30px;
+    width: 30px;
+  }
+  &.y.ship2 > div > div:hover::before {
+    height: 60px;
+    width: 30px;
+  }
+  &.y.ship3 > div > div:hover::before {
+    height: 90px;
+    width: 30px;
+  }
+  &.y.ship4 > div > div:hover::before {
+    height: 120px;
+    width: 30px;
+  }
+  &.y.ship5 > div > div:hover::before {
+    height: 150px;
+    width: 30px;
+  }
 }

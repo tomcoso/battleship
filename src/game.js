@@ -107,10 +107,11 @@ const game = (function () {
   }
 
   const handleShipPlacement = function (data) {
-    if (players.one.gameboard.ships.length >= 4) {
-      if (elements.newButton.disabled) elements.newButton.disabled = false
-      if (players.one.gameboard.ships.length === 5) return
-    }
+    if (players.one.gameboard.ships.length === 5) return
+    dom.newBoard.classList.replace(
+      `ship${players.one.gameboard.ships.length + 1}`,
+      `ship${players.one.gameboard.ships.length + 2}`
+    )
     const target = dom.getCellIndex(data.composedPath()[0])
     const axis =
       elements.newAxis.textContent[
@@ -119,7 +120,14 @@ const game = (function () {
     const length = players.one.gameboard.ships.length + 1
     try {
       newShip(players.one, elements.newBoard, target, length, axis)
-    } catch {}
+      if (players.one.gameboard.ships.length === 5)
+        elements.newButton.disabled = false
+    } catch {
+      dom.newBoard.classList.replace(
+        `ship${players.one.gameboard.ships.length + 2}`,
+        `ship${players.one.gameboard.ships.length + 1}`
+      )
+    }
   }
 
   const elements = dom.elements
